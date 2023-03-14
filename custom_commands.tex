@@ -1,0 +1,46 @@
+
+
+\lstset{
+  language=Python,
+  % define words like max, min, for, except as black
+  basicstyle=\color{black}\ttfamily\footnotesize,
+  numberstyle=\color{gray},
+  commentstyle=\color{OliveGreen}\bfseries,
+  emph={[1]reversed}, emphstyle={[1]\color{black}},
+  morekeywords={def,from,import,pass,return,try,continue, for,except,in,and, or,if,else, elif},
+   keywordstyle=\color{purple} \bfseries,
+  emph={[3]exec, values, items, copy, popFirst,extend, deepcopy, defaultdict, min, max, append, add, sort,intersects},emphstyle={[3]\color{BlueViolet} \bfseries},
+  showstringspaces=false,
+  emph={[4],int, bool, Call, List,Set, Dict, I, State, True, False, Call, CallWrite, CallRead, CallCAS}, emphstyle={[4]\color{Orange}\bfseries},
+  breaklines=true,
+  emph={[5]dfs, linearize_generic, CAS, sort_by_thread, make_intervals, io_check, intra_group_check, inter_group_check, topological_true_cas_sort}, emphstyle={[5]\color{blue} \bfseries},
+  prebreak=\mbox{{\color{gray}\tiny$\searrow$}},
+  numbers=left,
+  xleftmargin=25pt
+}
+
+
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+\algblock[TryCatchFinally]{try}{endtry}
+\algcblock[TryCatchFinally]{TryCatchFinally}{finally}{endtry}
+\algcblockdefx[TryCatchFinally]{TryCatchFinally}{catch}{endtry}
+	[1]{\textbf{catch} #1}
+	{}
+
+\algrenewcomment[1]{\(\triangleright\) #1}
+\algnewcommand{\LineComment}[1]{\State // #1}
+\algnewcommand{\Continue}{\State \textbf{continue}}
+\algnewcommand\algorithmicswitch{\textbf{switch}}
+\algnewcommand\algorithmiccase{\textbf{case}}
+
+% New "environments"
+\algdef{SE}[SWITCH]{Switch}{EndSwitch}[1]{\algorithmicswitch\ #1\ \algorithmicdo}{\algorithmicend\ \algorithmicswitch}%
+\algdef{SE}[CASE]{Case}{EndCase}[1]{\algorithmiccase\ #1}{\algorithmicend\ \algorithmiccase}%
+\algtext*{EndSwitch}%
+\algtext*{EndCase}%
